@@ -70,11 +70,3 @@ To run tests use:
 ```bash
 ./gradlew test
 ```
-
-## License
-
-This project is created for educational purposes.
-
-## Author
-
-The project is developed to demonstrate JWT token work in Spring Boot applications. 
