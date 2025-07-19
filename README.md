@@ -17,30 +17,6 @@ This application demonstrates the implementation of JWT (JSON Web Token) authent
 - **Gradle** - build system
 - **Java 17** - Java version
 
-## Project Structure
-
-```
-src/main/kotlin/com/gakulakov/jwttokens/
-├── controller/
-│   ├── article/
-│   │   ├── ArticleController.kt
-│   │   └── ArticleResponse.kt
-│   └── user/
-│       ├── UserController.kt
-│       ├── UserRequest.kt
-│       └── UserResponse.kt
-├── model/
-│   ├── Article.kt
-│   └── User.kt
-├── repository/
-│   ├── ArticleRepository.kt
-│   └── UserRepository.kt
-├── service/
-│   ├── ArticleService.kt
-│   └── UserService.kt
-└── JwttokensApplication.kt
-```
-
 ## Running the Project
 
 ### Prerequisites
