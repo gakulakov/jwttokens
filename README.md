@@ -70,3 +70,7 @@ To run tests use:
 ```bash
 ./gradlew test
 ```
+
+## License
+
+This project is created for educational purposes.
