@@ -2,33 +2,40 @@ package com.gakulakov.jwttokens.repository
 
 import com.gakulakov.jwttokens.model.Role
 import com.gakulakov.jwttokens.model.User
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Repository
 import java.util.UUID
 
 @Repository
-class UserRepository {
+class UserRepository(
+    private val encoder: PasswordEncoder
+) {
     private val users = mutableListOf(
         User(
             id = UUID.randomUUID(),
             email = "email-1@gmail.com",
-            passwod = "pass1",
+            passwod = encoder.encode("pass1"),
             role = Role.User,
         ),
         User(
             id = UUID.randomUUID(),
             email = "email-2@gmail.com",
-            passwod = "pass2",
+            passwod = encoder.encode("pass2"),
             role = Role.Admin,
         ),
         User(
             id = UUID.randomUUID(),
             email = "email-3@gmail.com",
-            passwod = "pass3",
+            passwod = encoder.encode("pass3"),
             role = Role.User,
         ),
     )
 
-    fun save(user: User): Boolean = users.add(user)
+    fun save(user: User): Boolean {
+        val updated = user.copy(passwod = encoder.encode(user.passwod))
+        
+        return users.add(updated)
+    }
 
     fun findByEmail(email: String): User? = users.firstOrNull { it.email == email }
 
