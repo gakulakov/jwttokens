@@ -51,7 +51,7 @@ class UserController(
             id = UUID.randomUUID(),
             email = this.email,
             passwod = this.password,
-            role = Role.User
+            role = Role.USER
         )
     }
 

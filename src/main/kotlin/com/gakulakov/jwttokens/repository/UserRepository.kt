@@ -10,24 +10,24 @@ import java.util.UUID
 class UserRepository(
     private val encoder: PasswordEncoder
 ) {
-    private val users = mutableListOf(
+    private val users = mutableListOf( // It list of users. Example like database table
         User(
             id = UUID.randomUUID(),
             email = "email-1@gmail.com",
             passwod = encoder.encode("pass1"),
-            role = Role.User,
+            role = Role.USER,
         ),
         User(
             id = UUID.randomUUID(),
             email = "email-2@gmail.com",
             passwod = encoder.encode("pass2"),
-            role = Role.Admin,
+            role = Role.ADMIN,
         ),
         User(
             id = UUID.randomUUID(),
             email = "email-3@gmail.com",
             passwod = encoder.encode("pass3"),
-            role = Role.User,
+            role = Role.USER,
         ),
     )
 

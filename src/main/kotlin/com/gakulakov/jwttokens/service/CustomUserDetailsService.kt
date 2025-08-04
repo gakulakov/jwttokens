@@ -13,7 +13,7 @@ typealias ApplicationUser = com.gakulakov.jwttokens.model.User
 class CustomUserDetailsService(
     private val userRepository: UserRepository
 ) : UserDetailsService {
-    override fun loadUserByUsername(username: String): UserDetails =
+    override fun loadUserByUsername(username: String): UserDetails = // Just find user by username from repository
         userRepository
             .findByEmail(username)
             ?.mapToUserDetails()

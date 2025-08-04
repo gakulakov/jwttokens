@@ -10,7 +10,7 @@ data class User(
 )
 
 enum class Role {
-    User,
-    Admin
+    USER,
+    ADMIN
 }
 

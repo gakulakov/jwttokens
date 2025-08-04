@@ -10,17 +10,19 @@ import java.util.Date
 
 @Service
 class TokenService(
-    val jwtProperties: JwtProperties
+    private val jwtProperties: JwtProperties
 ) {
     private val secretKey = Keys.hmacShaKeyFor(
         jwtProperties.key.toByteArray()
     )
 
+    // Generate JWT token
     fun generate(
         userDetails: UserDetails,
         expirationDate: Date,
         additionalClaims: Map<String, Any> = emptyMap()
-    ): String = Jwts.builder()
+    ): String =
+        Jwts.builder()
         .subject(userDetails.username) // Username (in this project it is looks like email)
         .issuedAt(Date(System.currentTimeMillis())) // Start Date
         .expiration(expirationDate) // End Date
